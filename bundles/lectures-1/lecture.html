@@ -1,0 +1,784 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>JS Course</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../node_modules/shower-ribbon/styles/screen.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="list">
+<header class="caption">
+    <h1>JS Course</h1>
+</header>
+<section class="slide cover" id="Cover">
+    <div>
+        <h2>JS Course</h2>
+
+        <p>Brought to you by Mangin Alexander</p>
+        <img src="../../pictures/cover.jpg" alt="">
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Типы данных</h2>
+        <table>
+            <tr>
+                <th scope="col">Тип</th>
+                <th>Значения</th>
+            </tr>
+            <tr>
+                <th scope="row">Number</th>
+                <td>1, 1.0, Nan, 0, infinity, -0, +0</td>
+            </tr>
+            <tr>
+                <th scope="row">String</th>
+                <td>"foo", 'foo'</td>
+            </tr>
+            <tr>
+                <th scope="row">Boolean</th>
+                <td>true, false</td>
+            </tr>
+            <tr>
+                <th scope="row">Null</th>
+                <td>null</td>
+            </tr>
+            <tr>
+                <th scope="row">Undefined</th>
+                <td>undefined</td>
+            </tr>
+            <tr>
+                <th scope="row">Object</th>
+                <td>{}</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Немного об объектах:</h2>
+        Объекты - это все кроме 5 примитивных типов.
+        <ul>
+            <li>{}</li>
+            <li>[]</li>
+            <li>/regExp/</li>
+            <li>new Date()</li>
+            <li>...</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Все типы делятся на </h2>
+        <ul>
+            <li>
+                Примитивные типы
+            </li>
+            <li>
+                Объекты
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Конструкторы примитивных типов:</h2>
+        <table>
+            <tr>
+                <th scope="col">Тип</th>
+                <th>Пример</th>
+            </tr>
+            <tr>
+                <th scope="row">Number</th>
+                <td>new Number(123)</td>
+            </tr>
+            <tr>
+                <th scope="row">String</th>
+                <td>new String('some string')</td>
+            </tr>
+            <tr>
+                <th scope="row">Boolean</th>
+                <td>new Boolean(true)</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Конструкторы примитивных типоа:</h2>
+        <strong>НИКОГДА НЕ ИСПОЛЬЗУЙТЕ ИХ!</strong>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Примеры с неочевидным поведением</h2>
+        <pre>
+            <code>var isFalse = new Boolean(false);</code>
+            <code>if (isFalse) {</code>
+            <code>  console.log('Вроде false а вроде нет');</code>
+            <code>}</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Примеры с неочевидным поведением</h2>
+        <pre>
+            <code>var str = new String('some');</code>
+            <code>if (typeof some !== 'string') {</code>
+            <code>  console.log('Вроде строка а вроде нет');</code>
+            <code>}</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Занимательные факты о числах</h2>
+
+        <ul>
+            <li>[1.7976931348623157e+308, -1.7976931348623157e+308</li>
+            <li>То есть числа хранятся в double</li>
+            <li>Но [-2^32, 2^32] хранятся в int</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Немного о Null и undefined</h2>
+        <pre>
+            <code>var x; </code>
+            <code>x; // undefined </code>
+            <code>x = null; </code>
+            <code>x; //null </code>
+        </pre>
+    </div>
+</section>
+
+
+<section class="slide">
+    <div>
+        <h2>typeof</h2>
+        <pre>
+            <code>typeof 13; <span class="next">//'number</span></code>
+            <code>typeof true; <span class="next">//'boolean'</span></code>
+            <code>typeof NaN; <span class="next">// 'number'</span></code>
+            <code>typeof {}; <span class="next">//'object'</span></code>
+            <code>typeof (function () {}); <span class="next">//'function'</span></code>
+            <code>typeof undefined <span class="next">//'undefined'</span> </code>
+            <code>typeof null <span class="next">//'object'</span> </code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>typeof null</h2>
+        Из чего состоит js's value:
+        <ul>
+            <li>Tag Name</li>
+            <li>Value</li>
+        </ul>
+
+        <a href="http://www.2ality.com/2013/10/typeof-null.html"> See more</a>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Что такое function?</h2>
+        <ul>
+            <li>Это объект</li>
+            <li>Каждая function имеет скрытое свойство __call__</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Алгоритм typeof</h2>
+        <ul>
+            <li>Если v void, то вернем 'undefined'</li>
+            <li>Если v объект, то</li>
+            <ul>
+                <li>Если v имеет скрытое свойство __call__, то 'function'</li>
+                <li>Иначе вернем 'object</li>
+            </ul>
+            <li>Если v число, то вернем 'number'</li>
+            <li>Если v число, то вернем 'string'</li>
+            <li>Если v число, то вернем 'boolean'</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Небольшие исключения</h2>
+
+        <p>
+            Если объект не родной, то typeof v == 'object' || typeof v === 'function'
+        </p>
+        <div style="clear: both">
+            <div style="float: left; display: inline-block; width: 50%">
+                Примеры родных объектов
+                <ul>
+                    <li>Array</li>
+                    <li>Date</li>
+                    <li>...</li>
+                </ul>
+            </div>
+            <div style="float: right; display: inline-block; width: 50%">
+                Примеры 'внедренных' объектов средой
+                <ul>
+                    <li>Navigator</li>
+                    <li>Toolbox</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Объявление переменных</h2>
+        <pre>
+            <code>var x = 100;</code>
+            <code>var x, y = 100;</code>
+        </pre>
+    </div>
+</section>
+
+
+<section class="slide">
+    <div>
+        <h2>Область видимости</h2>
+        <pre>
+            <code>for(var i = 0; i < 10; i += 10) {</code>
+            <code> console.log(i);</code>
+            <code>}</code>
+            <code>console.log(i); <span class="next">// 10</span></code>
+        </pre>
+    </div>
+</section>
+
+
+<section class="slide">
+    <div>
+        <h2>Scope</h2>
+        <ul>
+            <li>Блочный</li>
+            <li>Функциональный</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <pre class="code_size_medium">
+            <code>var a = 1;</code>
+            <code>function foo() {</code>
+            <code> var a = 2;</code>
+            <code> {</code>
+            <code> var a = 3;</code>
+            <code> }</code>
+            <code> conosle.log(a);</code>
+            <code>}</code>
+            <code>conosle.log(a);</code>
+            <code>foo()</code>
+            <code>conosle.log(a)</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Алгоритм получения значения переменной</h2>
+        <ul>
+            <li>scope = CURRENT-SCOPE</li>
+            <li>scope.has('variableName'), then return scope['variableName']</li>
+            <li>scope.hasParentScope(), then scope = scope.parent, else throw new ReferenceError()</li>
+            <li>goto 2</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Выводы:</h2>
+        <ul>
+            <li>Получение значения переменной происходит не за O(1)</li>
+            <li>Часто используемые переменные стоит хранить в текущем scope</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>var hoisting or Всплытие</h2>
+        <pre class="code_size_medium">
+            <code>var funcs = [];</code>
+            <code> </code>
+            <code>for(var i = 0; i < 10; i += 1) {</code>
+            <code>   funcs.append(function () { var z = i * i; });</code>
+            <code>}</code>
+            <code> </code>
+            <code>for(var i = 0; i < 10; i += 1) {</code>
+            <code>   funcs[i]()</code>
+            <code>}</code>
+            <code>var some = 42</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>var hoisting or Всплытие</h2>
+        <pre class="code_size_medium">
+            <code>var funcs = [],</code>
+            <code> i,</code>
+            <code> some;</code>
+            <code> </code>
+            <code>for(i = 0; i < 10; i += 1) {</code>
+            <code>   funcs.append(function () { var z = i * i; });</code>
+            <code>}</code>
+            <code> </code>
+            <code>for(i = 0; i < 10; i += 1) {</code>
+            <code>   funcs[i]()</code>
+            <code>}</code>
+            <code>some = 42</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Алгоритм всплытия</h2>
+        <ul>
+            <li>Вызываем функцию</li>
+            <li>Создаем scope</li>
+            <li>Ищем объявление локальных переменных</li>
+            <li>Записываем все объвления в scope</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Глобальные переменные</h2>
+        <pre>
+            <code>var a = 1; // в global scope</code>
+            <code>a = 1;</code>
+            <code>window.a = 1;</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>use strict и глобальные переменные</h2>
+        <pre>
+            <code>var a = 1; // в global scope</code>
+            <code>a = 1; // error</code>
+            <code>window.a = 1;</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>СТАРАЙТЕСЬ ИЗБЕГАТЬ ГЛОБАЛЬНЫХ ПЕРЕМЕННЫХ</h2>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Где хранятся значение перменных?</h2>
+        <ul>
+            <li>Стек</li>
+            <li>Куча</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Примитивные типы</h2>
+        <ul>
+            <li>Хранятся на стеке</li>
+            <li>Не имеют методов</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Не много магии</h2>
+        <pre>
+            <code>var x = 123;</code>
+            <code>x.toString()</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Как интерпретатор исполняет код</h2>
+        <pre>
+            <code>var x = 123;</code>
+            <code>new Number(x).toString()</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Жизненый цикл</h2>
+        <ul>
+            <li>Выделение необходимой памяти</li>
+            <li>Ее использование чтение/запись</li>
+            <li>освободжение памяти</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Сборщик мусора</h2>
+        <ul>
+            <li>Контролирует объекты</li>
+            <li>Удаляет из памяти объекты, которые больше не нужны</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Как он это делает?</h2>
+        Алгоритм подсчета ссылок
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Ссылки</h2>
+        <pre>
+            <code>var x = {};</code>
+            <code>var a = x;</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Как замочить ссылку?</h2>
+        <pre>
+            <code>delete pathToLink; // true or false</code>
+            <code>delete globalObject; // false</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Пример с утечкой памяти</h2>
+        <pre>
+            <code>function f(){</code>
+            <code> var o = {};</code>
+            <code> var o2 = {};</code>
+            <code> o.a = o2; // o ссылается на o2</code>
+            <code> o2.a = o; // o2 ссылается на o</code>
+            <code> return "azerty";</code>
+            <code>}</code>
+            <code>f();</code>
+        </pre>
+    </div>
+</section>
+
+<section>
+    <div>
+        <h2>Современный алгоритм сборки мусора</h2>
+        <span class="next">Mark and Sweep</span>
+    </div>
+
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Выводы</h2>
+        <ul>
+            <li>За все надо платить</li>
+            <li>Не стоит мешать сборщику мусора</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Что работает так же как и везде</h2>
+        <ul>
+            <li>+, -, /, *, %, ...</li>
+            <li>for(...), while, ...</li>
+            <li>if</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Немного об объектах</h2>
+        <ul>
+            <li>Это словарь c ключами и значениями</li>
+            <li>Создание var a = {}</li>
+            <li>Задание личных свойст: a.xxx = 'xxx' или a['xxx'] = 'xxx'</li>
+            <li>Получение свойств: a.xxx;</li>
+            <li>Но не совсем. У него есть еще скрытое свойство __proto__</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Алгоритм получение свойств</h2>
+        <ul>
+            <li>CURRENT_POSITION = obj</li>
+            <li>CURRENT_POSITION.hasOwnProperty('some-property'), then return CURRENT_POSITION.get('some-property')</li>
+            <li>CURRENT_POSITION.__proto__ !== null, then CURRENT_POSITION = CURRENT_POSITION.__proto__ else return
+                'undefined'
+            </li>
+            <li>goto 2</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Вывод:</h2>
+        <ul>
+            <li>Получение свойст происходит не за O(1)</li>
+            <li>Часто используемые свойства лучше держать поближе*</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>for in</h2>
+        <pre>
+            <code>for( var i in window) {</code>
+            <code> console.log(i);</code>
+            <code>}</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Что такое свойство объекта?</h2>
+        <pre>
+            <code>Object.defineProperty(obj, 'property_name', {</code>
+            <code>  enumerable: true,</code>
+            <code>  configurable: true,</code>
+            <code>  writable: true,</code>
+            <code>  value: 42</code>
+            <code>});</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Алгоритм работы</h2>
+        <pre>
+            <code>HASH = new dict()</code>
+            <code>CURRENT = obj</code>
+            <code>Бежим по всем свойствам объекта, HASH['свойство-объета'] = true</code>
+            <code>CURRENT.__proto__ != null, then CURRENT = CURRENT.__proto__</code>
+            <code>goto 3</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Опасный пример</h2>
+        <pre>
+            <code>Object.prototype.getMagicNumber = function () {return 42;};</code>
+            <code>for(var i in {}) {</code>
+            <code> console.log(i);</code>
+            <code>}</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Безопасный пример</h2>
+        <pre>
+            <code>Object.prototype.getMagicNumber = function () {return 42;};</code>
+            <code>var a = {};</code>
+            <code>for(var i in a) {</code>
+            <code> if (a.hasOwnProperty(i)) {</code>
+            <code> console.log(i);</code>
+            <code> }</code>
+            <code>}</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>А лучше так</h2>
+        <pre>
+            <code>Object.prototype.getMagicNumber = function () {return 42;};</code>
+            <code>var a = {};</code>
+            <code>Object.keys(a);</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Немного о массивах</h2>
+        <pre>
+            <code>var a = [];</code>
+            <code>a.length;</code>
+            <code>a[0];</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Бежим по массиву</h2>
+        <pre>
+            <code>for(var i = 0; i < a.length; i+=1) {</code>
+            <code> console.log(a[i]);</code>
+            <code>}</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>А можно так</h2>
+        <pre>
+            <code>a.forEach(function (value, i) {</code>
+            <code> console.log(value);</code>
+            <code>});</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Фильтруем массив</h2>
+        <pre>
+            <code>var persons = [...], filterPersons = [];</code>
+            <code>for(var i = 0; i < persons.length; i += 1) {</code>
+            <code> if (persons.age > 18) {</code>
+            <code> filterPersons.push(persons[i]);</code>
+            <code> }</code>
+            <code>}</code>
+            <code>persons = filterPersons;</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Фильтруем массив</h2>
+        <pre>
+            <code>var persons = [...];</code>
+            <code>persons = persons.filter(function (person, i) {</code>
+            <code> return person.age > 18;</code>
+            <code>});</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Преобразуем массив</h2>
+        <pre>
+            <code>var persons = [...], szv64s = [];</code>
+            <code>for(var i = 0; i < persons.length; i += 1) {</code>
+            <code> szv64s.push(createSZV(person))</code>
+            <code>}</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Преобразуем массив</h2>
+        <pre>
+            <code>var persons = [...],</code>
+            <code> szv64s = persons.map(createSZV);</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Проверка на существование элемента</h2>
+        <pre>
+            <code>var persons = [...], hasChild;</code>
+            <code>for( var i = 0; i < persons.length; i += 1) {</code>
+            <code> if (persons[i].age < 18) {</code>
+            <code> hasChild = true;</code>
+            <code> break;</code>
+            <code> }</code>
+            <code>}</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Проверка на существование элемента</h2>
+        <pre>
+            <code>var persons = [...],</code>
+            <code> hasChild = persons.some(function(person) {</code>
+            <code> return person.age < 18;</code>
+            <code> });</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Аналогично для всех(every)</h2>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2>Итого</h2>
+        <ul>
+            <li>Типы данных</li>
+            <li>Поговорили об объявлении переменных</li>
+            <li>Узнали о том как работает сборка муссора</li>
+            <li>Узнали не много об объектах</li>
+            <li>Поговори о хелперах к массивам</li>
+        </ul>
+    </div>
+</section>
+<div class="progress">
+    <div></div>
+</div>
+<script src="../../node_modules/shower-core/shower.min.js"></script>
+<!-- Copyright © 2014 Yours Truly, Famous Inc. -->
+<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>

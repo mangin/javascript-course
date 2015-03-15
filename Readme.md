@@ -1,13 +1,16 @@
-Js Course.
+<h1>Js Course.</h1>
 
-Как собрать и посмотреть лекцию:
-0. скачиваем лекцию архивом или git clone
-1. ставим node https://nodejs.org/
-2. cd папка с лекцией
-3. npm install
-4. npm install -g bower
-5. bower install
-6. переходим в ./bundles/lecture/index.html
-7. profit!
+<h2>Как собрать и посмотреть лекцию:</h2>
 
-Если что-то не работает, то всегда готов помочь
+<ul>
+  <li> скачиваем лекцию архивом или git clone</li>
+  <li> ставим node https://nodejs.org/</li>
+  <li> cd папка с лекцией</li>
+  <li> npm install</li>
+  <li> npm install -g bower</li>
+  <li> bower install</li>
+  <li> переходим в ./bundles/lectureN/index.html</li>
+  <li> profit!</li>
+</ul>
+
+<p>Если что-то не работает, то всегда готов помочь</p>

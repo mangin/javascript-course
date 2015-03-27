@@ -59,7 +59,7 @@
 <section class="slide">
     <div>
         <h2>Немного об объектах:</h2>
-        Объекты - это все кроме 5 примитивных типов.
+        Объекты — это все кроме 5 примитивных типов.
         <ul>
             <li>{}</li>
             <li>[]</li>
@@ -110,7 +110,7 @@
 
 <section class="slide">
     <div>
-        <h2>Конструкторы примитивных типоа:</h2>
+        <h2>Конструкторы примитивных типов:</h2>
         <strong>НИКОГДА НЕ ИСПОЛЬЗУЙТЕ ИХ!</strong>
     </div>
 </section>
@@ -132,7 +132,7 @@
         <h2>Примеры с неочевидным поведением</h2>
         <pre>
             <code>var str = new String('some');</code>
-            <code>if (typeof some !== 'string') {</code>
+            <code>if (typeof str !== 'string') {</code>
             <code>  console.log('Вроде строка а вроде нет');</code>
             <code>}</code>
         </pre>
@@ -292,11 +292,11 @@
             <code> {</code>
             <code> var a = 3;</code>
             <code> }</code>
-            <code> conosle.log(a);</code>
+            <code> console.log(a);</code>
             <code>}</code>
-            <code>conosle.log(a);</code>
+            <code>console.log(a);</code>
             <code>foo()</code>
-            <code>conosle.log(a)</code>
+            <code>console.log(a)</code>
         </pre>
     </div>
 </section>
@@ -403,7 +403,7 @@
 
 <section class="slide">
     <div>
-        <h2>Где хранятся значение перменных?</h2>
+        <h2>Где хранятся значения перменных?</h2>
         <ul>
             <li>Стек</li>
             <li>Куча</li>
@@ -423,7 +423,7 @@
 
 <section class="slide">
     <div>
-        <h2>Не много магии</h2>
+        <h2>Немного магии</h2>
         <pre>
             <code>var x = 123;</code>
             <code>x.toString()</code>
@@ -540,7 +540,7 @@
         <ul>
             <li>Это словарь c ключами и значениями</li>
             <li>Создание var a = {}</li>
-            <li>Задание личных свойст: a.xxx = 'xxx' или a['xxx'] = 'xxx'</li>
+            <li>Задание личных свойств: a.xxx = 'xxx' или a['xxx'] = 'xxx'</li>
             <li>Получение свойств: a.xxx;</li>
             <li>Но не совсем. У него есть еще скрытое свойство __proto__</li>
         </ul>
@@ -549,7 +549,7 @@
 
 <section class="slide">
     <div>
-        <h2>Алгоритм получение свойств</h2>
+        <h2>Алгоритм получения свойств</h2>
         <ul>
             <li>CURRENT_POSITION = obj</li>
             <li>CURRENT_POSITION.hasOwnProperty('some-property'), then return CURRENT_POSITION.get('some-property')</li>
@@ -565,7 +565,7 @@
     <div>
         <h2>Вывод:</h2>
         <ul>
-            <li>Получение свойст происходит не за O(1)</li>
+            <li>Получение свойств происходит не за O(1)</li>
             <li>Часто используемые свойства лучше держать поближе*</li>
         </ul>
     </div>

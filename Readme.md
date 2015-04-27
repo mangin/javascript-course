@@ -1,5 +1,12 @@
 <h1>Js Course.</h1>
 
+<h2>Домашние задания</h2>
+<ul>
+  <li>https://github.com/mangin/HW0</li>
+  <li>https://github.com/mangin/HW1</li>
+  <li>https://github.com/mangin/HW2</li>
+</ul>
+
 <h2>Отмена занятий</h2>
 <ul>
   <li> 27 марта, так как я заболел</li>
